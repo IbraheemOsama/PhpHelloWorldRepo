@@ -1,5 +1,8 @@
 <?php
-include("includes\phpdocumentdb.php");
+include("includes\Crassaert\AzureDocumentDB\AzureDocumentDB.php");
+//require_once 'includes\AzureDocumentDB.php';
+use Crassaert\AzureDocumentDB\AzureDocumentDB;
+
 	$page="";
 		if(isset($_POST['name'])) {
 			$page = 'thanks';
@@ -7,24 +10,15 @@ include("includes\phpdocumentdb.php");
         
         
          $host = 'https://phpdocumentdbtest.documents.azure.com:443/';
-    $master_key = getenv("documentDBKey"); ;
+    $master_key = "+GwNhmxQT2pf1ux8r4WGV3tqkUyidxKmiHPq1RMkuYoKgHJnSBeVPmgljGD3EfcYTySypJ4+TEFnR//MrFfcgQ==";//getenv("documentDBKey"); ;
     
     // connect DocumentDB
-    $documentdb = new DocumentDB($host, $master_key);
-    
-    // select Database or create
-    $db = $documentdb->selectDB("ClothesDB");
-    
-    // select Collection or create
-    $col = $db->selectCollection("Pants");
-    
-    // run query
-    $json = $col->query("SELECT * FROM Pants");
-    
-    // Debug
-    $object = json_decode($json);
+   $db = new AzureDocumentDB($host, $master_key, false);
 
-    echo($object);
+   $db->get('database')->create('clothes');
+    $dbs=$db->get('database')->_list();
+    
+    
 ?>
 
 
@@ -38,6 +32,10 @@ include("includes\phpdocumentdb.php");
     <?php
     echo($page);
     echo($master_key);
+    foreach($dbs as $key=>$value)
+    {
+     echo($value);   
+    }
     
 //phpinfo();
 ?>
