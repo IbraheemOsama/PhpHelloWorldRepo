@@ -10,7 +10,7 @@
 ?>
 
 <?php
-$greeter="Hello MDC from a the is the good CD azure sample";
+$greeter="Php from VS Code.";
 echo($greeter);
 ?>
     
