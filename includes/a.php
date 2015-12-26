@@ -10,7 +10,7 @@
 ?>
 
 <?php
-$greeter="Hello MDC from a";
+$greeter="Hello MDC from a the is the good CD azure sample";
 echo($greeter);
 ?>
     
