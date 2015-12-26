@@ -1,9 +1,30 @@
 <?php
+include("includes\phpdocumentdb.php");
 	$page="";
 		if(isset($_POST['name'])) {
 			$page = 'thanks';
 		}
+        
+        
+         $host = 'https://phpdocumentdbtest.documents.azure.com:443/';
+    $master_key = getenv("documentDBKey"); ;
+    
+    // connect DocumentDB
+    $documentdb = new DocumentDB($host, $master_key);
+    
+    // select Database or create
+    $db = $documentdb->selectDB("ClothesDB");
+    
+    // select Collection or create
+    $col = $db->selectCollection("Pants");
+    
+    // run query
+    $json = $col->query("SELECT * FROM Pants");
+    
+    // Debug
+    $object = json_decode($json);
 
+    echo($object);
 ?>
 
 
@@ -16,6 +37,8 @@
     
     <?php
     echo($page);
+    echo($master_key);
+    
 //phpinfo();
 ?>
 
