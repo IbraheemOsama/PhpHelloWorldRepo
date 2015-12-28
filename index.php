@@ -9,7 +9,7 @@ if(isset($_POST['name'])) {
     $page = 'thanks';
 }
 
-
+/*
 $host = "tcp:f6mooov6xr.database.windows.net,1433";
 $user = "FlyDBAdmin";
 $pwd = "P@ssw0rd123@";
@@ -40,7 +40,7 @@ try{
 catch(Exception $e){
     echo(print_r($e));
 }
-
+*/
 ?>
 
 
