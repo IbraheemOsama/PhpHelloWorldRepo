@@ -20,12 +20,12 @@ try{
     
     $conn = sqlsrv_connect($serverName, $connectionOptions);
     if($conn == false)
-    die(FormatErrors(sqlsrv_errors()));
+    echo(FormatErrors(sqlsrv_errors()));
     
     $tsql = "select * from [TablesValidation]";
     $getProducts = sqlsrv_query($conn, $tsql);
     if ($getProducts == FALSE)
-        die(FormatErrors(sqlsrv_errors()));
+        echo(FormatErrors(sqlsrv_errors()));
     
     while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
     {
@@ -38,7 +38,7 @@ try{
     
 }
 catch(Exception $e){
-    die(print_r($e));
+    echo(print_r($e));
 }
 
 ?>
