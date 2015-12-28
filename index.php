@@ -12,7 +12,7 @@ if(isset($_POST['name'])) {
 
 $host = "tcp:f6mooov6xr.database.windows.net,1433";
 $user = "FlyDBAdmin";
-$pwd = "P@ssw0rd123@";
+$pwd = getenv("databasePassword");
 $db = "DynamicAppsBase";
 
 try{
