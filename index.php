@@ -9,38 +9,34 @@ if(isset($_POST['name'])) {
     $page = 'thanks';
 }
 
-/*
+
 $host = "tcp:f6mooov6xr.database.windows.net,1433";
 $user = "FlyDBAdmin";
 $pwd = "P@ssw0rd123@";
 $db = "DynamicAppsBase";
+
 try{
     $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    
-    $conn = sqlsrv_connect($serverName, $connectionOptions);
-    if($conn == false)
-    echo(FormatErrors(sqlsrv_errors()));
-    
-    $tsql = "select * from [TablesValidation]";
-    $getProducts = sqlsrv_query($conn, $tsql);
-    if ($getProducts == FALSE)
-        echo(FormatErrors(sqlsrv_errors()));
-    
-    while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
-    {
-        echo($row['ID']);
-        echo("<br/>");
+    $sql_select = "SELECT * FROM TablesValidation";
+    $stmt = $conn->query($sql_select);
+    $registrants = $stmt->fetchAll();
+    if(count($registrants) > 0) {
+        echo "<h2>People who are registered:</h2>";
+        echo "<table>";
+        echo "<tr><th>Name</th>";
+        foreach($registrants as $registrant) {
+            echo "<tr><td>".$registrant['ID']."</td>";
+        }
+        echo "</table>";
+    } else {
+        echo "<h3>No one is currently registered.</h3>";
     }
-    sqlsrv_free_stmt($getProducts);
-    sqlsrv_close($conn);
-    
-    
 }
 catch(Exception $e){
-    echo(print_r($e));
+    die(print_r($e));
 }
-*/
+echo "<h3>Table created.</h3>";
+
 ?>
 
 
