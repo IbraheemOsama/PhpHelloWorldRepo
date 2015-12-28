@@ -1,5 +1,6 @@
 <?php
-include("includes\Crassaert\AzureDocumentDB\AzureDocumentDB.php");
+
+//require __DIR__ . '/Crassaert\AzureDocumentDB\AzureDocumentDB.php';
 //require_once 'includes\AzureDocumentDB.php';
 use Crassaert\AzureDocumentDB\AzureDocumentDB;
 

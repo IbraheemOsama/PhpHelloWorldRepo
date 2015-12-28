@@ -1,0 +1,11 @@
+{
+    "name": "crassaert/php-azure-documentdb",
+    "require-dev": {
+        "phpunit/phpunit": "5.0.*"
+        },
+        "autoload": {
+            "psr-4": { 
+                "Crassaert\\AzureDocumentDB\\": "src/Crassaert/AzureDocumentDB"
+            }
+        }
+}
