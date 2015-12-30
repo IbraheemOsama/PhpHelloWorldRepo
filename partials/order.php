@@ -25,11 +25,10 @@ if(isset($_POST['name'])) {
 }
 
 try{
-    
     $sql_select = "SELECT * FROM [Orders]";
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll();
-    if(count($registrants) > 0) {
+    /*if(count($registrants) > 0) {
         echo "<h2>People who are registered:</h2>";
         echo "<table>";
         echo "<tr><th>ID</th>";
@@ -41,7 +40,7 @@ try{
         echo "</table>";
     } else {
         echo "<h3>No one is currently registered.</h3>";
-    }
+    }*/
 }
 catch(Exception $e){
     die(print_r($e));
@@ -101,16 +100,16 @@ catch(Exception $e){
                     <th class="goods-page-total" colspan="2">Total</th>
                   </tr>
                   <tr>
+                      <?php foreach($registrants as $registrant): ?>
+
                     <td class="goods-page-image">
                       <a href="javascript:;"><img src="./assets/frontend/pages/img/products/model3.jpg" alt="Berry Lace Dress"></a>
                     </td>
                     <td class="goods-page-description">
-                      <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                      <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                      <em>More info is here</em>
+                      <h3><a href="javascript:;"><?php echo $registrant['Name']; ?></a></h3>
                     </td>
                     <td class="goods-page-ref-no">
-                      javc2133
+                      Azure & PHP
                     </td>
                     <td class="goods-page-quantity">
                       <div class="product-quantity">
@@ -126,33 +125,7 @@ catch(Exception $e){
                     <td class="del-goods-col">
                       <a class="del-goods" href="javascript:;">&nbsp;</a>
                     </td>
-                  </tr>
-                  <tr>
-                    <td class="goods-page-image">
-                      <a href="javascript:;"><img src="./assets/frontend/pages/img/products/model4.jpg" alt="Berry Lace Dress"></a>
-                    </td>
-                    <td class="goods-page-description">
-                      <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                      <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                      <em>More info is here</em>
-                    </td>
-                    <td class="goods-page-ref-no">
-                      javc2133
-                    </td>
-                    <td class="goods-page-quantity">
-                      <div class="product-quantity">
-                          <input id="product-quantity2" type="text" value="1" readonly class="form-control input-sm">
-                      </div>
-                    </td>
-                    <td class="goods-page-price">
-                      <strong><span>$</span>47.00</strong>
-                    </td>
-                    <td class="goods-page-total">
-                      <strong><span>$</span>47.00</strong>
-                    </td>
-                    <td class="del-goods-col">
-                      <a class="del-goods" href="javascript:;">&nbsp;</a>
-                    </td>
+                    <?php endforeach ?>-
                   </tr>
                 </table>
                 </div>
