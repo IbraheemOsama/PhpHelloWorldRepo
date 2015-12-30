@@ -5,19 +5,18 @@
 
 
 $page="";
-if(isset($_POST['name'])) {
-    $page = 'thanks';
-}
 
 
 $host = "tcp:f6mooov6xr.database.windows.net,1433";
 $user = "FlyDBAdmin";
+
+// this method retrieves settings
 $pwd = getenv("databasePassword");
-$db = "DynamicAppsBase";
+$db = "OnlineShoppingDb";
 
 try{
     $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-    $sql_select = "SELECT * FROM TablesValidation";
+    $sql_select = "SELECT * FROM [Orders]";
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll();
     if(count($registrants) > 0) {
@@ -35,6 +34,22 @@ try{
 catch(Exception $e){
     die(print_r($e));
 }
+
+
+if(isset($_POST['name'])) {
+    
+    $name = $_POST['name'];
+    $sql_insert = "INSERT INTO [Orders] (Name) 
+                   VALUES (?)";
+    $stmt = $conn->prepare($sql_insert);
+    $stmt->bindValue(1, $name);
+    //$stmt->bindValue(2, $email);
+    //$stmt->bindValue(3, $date);
+    $stmt->execute();
+    
+    $page = 'thanks';
+}
+
 echo "<h3>Table created.</h3>";
 
 ?>
@@ -85,18 +100,6 @@ echo($querystring);
             <p>
               <label for="name">Name</label>
               <input type="text" name="name" id="name" placeholder="Name" />
-            </p>
-
-            <p>
-              <input type="radio" name="attending" value="yes" /> I&rsquo;m coming!
-              <br />
-              <input type="radio" name="attending" value="no" /> I can&rsquo;t make it.
-
-            </p>
-
-            <p>
-              <label for="guests">Date&rsquo;s Name (if applicable)</label>
-              <input type="text" name="date_name" id="date_name" placeholder="Guest Name" />
             </p>
 
             <input type="submit" value="RSVP" class="submit" />
