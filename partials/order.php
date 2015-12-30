@@ -99,9 +99,9 @@ catch(Exception $e){
                     <th class="goods-page-price">Unit price</th>
                     <th class="goods-page-total" colspan="2">Total</th>
                   </tr>
-                  <tr>
+                  
                       <?php foreach($registrants as $registrant): ?>
-
+<tr>
                     <td class="goods-page-image">
                       <a href="javascript:;"><img src="./assets/frontend/pages/img/products/model3.jpg" alt="Berry Lace Dress"></a>
                     </td>
@@ -125,8 +125,9 @@ catch(Exception $e){
                     <td class="del-goods-col">
                       <a class="del-goods" href="javascript:;">&nbsp;</a>
                     </td>
+                    </tr>
                     <?php endforeach ?>-
-                  </tr>
+                  
                 </table>
                 </div>
 
