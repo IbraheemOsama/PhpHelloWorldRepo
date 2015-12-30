@@ -22,9 +22,11 @@ try{
     if(count($registrants) > 0) {
         echo "<h2>People who are registered:</h2>";
         echo "<table>";
+        echo "<tr><th>ID</th>";
         echo "<tr><th>Name</th>";
         foreach($registrants as $registrant) {
             echo "<tr><td>".$registrant['ID']."</td>";
+            echo "<tr><td>".$registrant['Name']."</td>";
         }
         echo "</table>";
     } else {
