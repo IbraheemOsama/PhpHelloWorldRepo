@@ -10,7 +10,7 @@
 	$nav = array(
 		'index'=>'Home',
 		'woman'=>'Woman',
-		'man'=>'Man',
+		'man'=>'Man',    
         'admin'=>'Admin',
 		'order'=>'Order'
 	);
