@@ -3,10 +3,11 @@
  $host = "br-cdbr-azure-south-a.cloudapp.net";
     $user = "b4fc5d49ac1136";
     $pwd = "cf45f17c";
-    $db = "MyFirstMySQLDB";
+    //$db = "MyFirstMySQLDB";
     // Connect to database.
     try {
-        $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+        //$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+        $conn = new PDO( "mysql:host=$host", $user, $pwd);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     }
     catch(Exception $e){
