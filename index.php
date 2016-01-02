@@ -11,6 +11,7 @@
 		'index'=>'Home',
 		'woman'=>'Woman',
 		'man'=>'Man',
+        'admin'=>'Admin',
 		'order'=>'Order'
 	);
 
