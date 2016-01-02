@@ -3,7 +3,7 @@
  $host = "br-cdbr-azure-south-a.cloudapp.net";
     $user = "b4fc5d49ac1136";
     $pwd = "cf45f17c";
-    $db = "MyFirstMySQLDB";
+    $db = "acsm_b85ddb838ff8503";
     // Connect to database.
     try {
         $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
@@ -110,7 +110,7 @@ catch(Exception $e){
                       <a href="javascript:;"><img src="./assets/frontend/pages/img/products/model3.jpg" alt="Berry Lace Dress"></a>
                     </td>
                     <td class="goods-page-description">
-                      <h3><a href="javascript:;"><?php echo $registrant['Name']; ?></a></h3>
+                      <h3><a href="javascript:;"><?php echo $registrant['name']; ?></a></h3>
                     </td>
                     <td class="goods-page-ref-no">
                       Azure & PHP
