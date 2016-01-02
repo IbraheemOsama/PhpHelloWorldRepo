@@ -3,7 +3,7 @@
  $host = "br-cdbr-azure-south-a.cloudapp.net";
     $user = "b4fc5d49ac1136";
     $pwd = "cf45f17c";
-    $db = "acsm_b85ddb838ff8503";
+    $db = "MyFirstMySQLDB";
     // Connect to database.
     try {
         $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
