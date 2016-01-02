@@ -29,7 +29,7 @@ if(isset($_POST['name'])) {
 }
 
 try{
-    $sql_select = "SELECT * FROM Order";
+    $sql_select = "SELECT * FROM order";
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll();
     /*if(count($registrants) > 0) {
