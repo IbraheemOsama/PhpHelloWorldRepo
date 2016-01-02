@@ -4,7 +4,7 @@
 	 * - use functions like isset(), in_array() and array_keys() to build basic routing
 	 * - use alternative syntax to loop inside our HTML template to include a file and update a class in our nav
 	 */
-
+   
 
 	// create a nav array
 	$nav = array(
