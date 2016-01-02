@@ -1,31 +1,35 @@
 <?php
 
-$host = "tcp:f6mooov6xr.database.windows.net,1433";
-$user = "FlyDBAdmin";
-
-// this method retrieves settings
-$pwd = getenv("databasePassword");
-$db = "OnlineShoppingDb";
-$conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+ $host = "br-cdbr-azure-south-a.cloudapp.net";
+    $user = "b4fc5d49ac1136";
+    $pwd = "cf45f17c";
+    $db = "MyFirstMySQLDB";
+    // Connect to database.
+    try {
+        $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+        $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    }
+    catch(Exception $e){
+        die(var_dump($e));
+    }
 
 $page="";
 
 if(isset($_POST['name'])) {
     
     $name = $_POST['name'];
-    $sql_insert = "INSERT INTO [Orders] (Name) 
+    $sql_insert = "INSERT INTO order (name) 
                    VALUES (?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $name);
     //$stmt->bindValue(2, $email);
     //$stmt->bindValue(3, $date);
     $stmt->execute();
-    
-    $page = 'thanks';
+    //$page = 'thanks';
 }
 
 try{
-    $sql_select = "SELECT * FROM [Orders]";
+    $sql_select = "SELECT * FROM Order";
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll();
     /*if(count($registrants) > 0) {
