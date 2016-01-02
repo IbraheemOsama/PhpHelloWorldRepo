@@ -19,7 +19,7 @@ $page="";
 if(isset($_POST['name'])) {
     
     $name = $_POST['name'];
-    $sql_insert = "INSERT INTO ord (name) 
+    $sql_insert = "INSERT INTO orders (name) 
                    VALUES (?)";
     $stmt = $conn->prepare($sql_insert);
     $stmt->bindValue(1, $name);
@@ -30,7 +30,7 @@ if(isset($_POST['name'])) {
 }
 
 try{
-    $sql_select = "SELECT * FROM ord";
+    $sql_select = "SELECT * FROM orders";
     $stmt = $conn->query($sql_select);
     $registrants = $stmt->fetchAll();
     /*if(count($registrants) > 0) {
