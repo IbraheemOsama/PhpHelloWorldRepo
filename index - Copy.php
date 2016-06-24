@@ -3,11 +3,11 @@
 //require __DIR__ . '/Crassaert\AzureDocumentDB\AzureDocumentDB.php';
 //require_once 'includes\AzureDocumentDB.php';
 
-$host = "tcp:f6mooov6xr.database.windows.net,1433";
-$user = "FlyDBAdmin";
+$host = "";
+$user = "";
 
 // this method retrieves settings
-$pwd = getenv("databasePassword");
+$pwd = getenv("");
 $db = "OnlineShoppingDb";
 $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
 
